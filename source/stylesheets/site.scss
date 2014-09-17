@@ -1,0 +1,12 @@
+@import 'bourbon/bourbon.scss';
+@import 'neat/neat.scss';
+
+body {
+  h1 {
+    color: blue;
+  }
+}
+.doc {
+  @include span-columns(6);
+  background-color: orange;
+}
