@@ -1,12 +1,82 @@
 @import 'bourbon/bourbon.scss';
 @import 'neat/neat.scss';
 
-body {
-  h1 {
-    color: blue;
+
+/* ========== [ Colors ] ============= */
+
+$fake-black: #1F1917;
+$dark-brown: #241205;
+$powder-blue: #667C74;
+$cream: #C1BB7B;
+
+/* =================================== */
+
+$color-body-copy: $fake-black;
+$color-body-bg: #eee;
+$color-link: $powder-blue;
+
+
+
+/* ========== [ Resets ] ============= */
+
+h1, h2, h3, h4 {
+  margin: 0;
+  padding: 0;
+  font-weight: normal;
+}
+
+a {
+  color: $color-link;
+  text-decoration: none;
+  &:hover {
+    text-decoration: underline;
   }
 }
-.doc {
+
+
+
+/* ========== [ Extenders ] ============= */
+
+%ul-reset {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* ========== [ Global ] ============= */
+
+body {
+  font: 1em/1.6 helvetica, arial, sans-serif;
+  color: $color-body-copy;
+  background-color: $color-body-bg;
+}
+
+/* ========== [ Header] ============= */
+
+.header-container {
+  @include outer-container;
+}
+
+.title {
   @include span-columns(6);
-  background-color: orange;
+}
+
+.site-title {
+  font-size: 1.5em;
+}
+
+.site-nav {
+  @include span-columns(6);
+}
+
+.nav-links {
+  @extend %ul-reset;
+  text-align: right;
+  li {
+    display: inline-block;
+    margin-right: 1em;
+    &:last-child {
+      margin-right: 0;
+    }
+  }
 }
