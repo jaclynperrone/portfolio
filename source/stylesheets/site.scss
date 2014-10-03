@@ -1,5 +1,8 @@
 @import 'bourbon/bourbon.scss';
 @import 'neat/neat.scss';
+@import 'fonts';
+
+// $max-width: em(1024);
 
 
 /* ========== [ Colors ] ============= */
@@ -46,11 +49,21 @@ a {
 /* ========== [ Global ] ============= */
 
 body {
-  font: 1em/1.6 helvetica, arial, sans-serif;
+  font: 1em/1.6 'source_sans_prolight', arial, sans-serif;
   color: $color-body-copy;
   background-color: $color-body-bg;
 }
 
+.content-container {
+  @include outer-container;
+}
+
+.thumb-col {
+  @include span-columns(4);
+}
+.content-row {
+  @include clearfix;
+}
 /* ========== [ Header] ============= */
 
 .header-container {
@@ -80,3 +93,19 @@ body {
     }
   }
 }
+
+/* ========== [ Resume ] ============= */
+.resume-header-col {
+  @include span-columns(2);
+}
+.resume-detail-col {
+  @include span-columns(10);
+}
+
+.skill-section {
+  @include shift(2);
+}
+.company-name {
+  font-family: 'source_sans_proregular';
+}
+
