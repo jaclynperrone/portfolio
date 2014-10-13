@@ -14,9 +14,12 @@ $cream: #C1BB7B;
 
 /* =================================== */
 
-$color-body-copy: $fake-black;
-$color-body-bg: #eee;
-$color-link: $powder-blue;
+$color-body-copy: #82665A;
+$color-body-bg: #F4F4F4;
+$color-link: #9C5A36;
+
+
+$radius: 2px;
 
 
 
@@ -28,15 +31,19 @@ h1, h2, h3, h4 {
   font-weight: normal;
 }
 
+h3 {
+  @extend %h3;
+}
+
 a {
   color: $color-link;
   text-decoration: none;
-  &:hover {
-    text-decoration: underline;
-  }
 }
 
-
+header {
+  margin-bottom: 3em;
+  // background-color: #947991;
+}
 
 /* ========== [ Extenders ] ============= */
 
@@ -46,12 +53,23 @@ a {
   margin: 0;
 }
 
+%h1 {
+  font-size: 1.75em;
+}
+
+%h3 {
+  font-size: 1em;
+  text-transform: uppercase;
+}
+
+
 /* ========== [ Global ] ============= */
 
 body {
   font: 1em/1.6 'source_sans_prolight', arial, sans-serif;
   color: $color-body-copy;
   background-color: $color-body-bg;
+  // background: image-url('site-bg.png');
 }
 
 .content-container {
@@ -61,9 +79,11 @@ body {
 .thumb-col {
   @include span-columns(4);
 }
+
 .content-row {
   @include clearfix;
 }
+
 /* ========== [ Header] ============= */
 
 .header-container {
@@ -72,10 +92,15 @@ body {
 
 .title {
   @include span-columns(6);
+  position: relative;
 }
 
 .site-title {
-  font-size: 1.5em;
+  font-size: 2.5em;
+  line-height: 53px;
+  a {
+    color: $fake-black;
+  }
 }
 
 .site-nav {
@@ -85,19 +110,32 @@ body {
 .nav-links {
   @extend %ul-reset;
   text-align: right;
+  font-size: 1.125em;
+  font-family: 'source_sans_proregular';
+
+  a {
+    display: block;
+    padding: 0.75em 1.25em;
+    border-bottom-right-radius: $radius;
+    border-bottom-left-radius: $radius;
+  }
+
   li {
     display: inline-block;
-    margin-right: 1em;
-    &:last-child {
-      margin-right: 0;
+    &.active {
+      a {
+        // background-color: #CBBEBC;
+      }
     }
   }
 }
 
 /* ========== [ Resume ] ============= */
+
 .resume-header-col {
   @include span-columns(2);
 }
+
 .resume-detail-col {
   @include span-columns(10);
 }
@@ -109,3 +147,21 @@ body {
   font-family: 'source_sans_proregular';
 }
 
+/* ========== [ Design ] ============= */
+
+.project-thumb {
+  overflow: hidden;
+  img {
+    // @include transition(opacity, 0.1s);
+    border-radius: $radius;
+    // opacity: 0.5;
+    &:hover {
+      // opacity: 0.8;
+    }
+  }
+
+}
+
+.thumb-caption {
+  margin-bottom: 3em;
+}
