@@ -41,7 +41,7 @@ a {
 }
 
 header {
-  margin-bottom: 3em;
+  margin-bottom: 2em;
   // background-color: #947991;
 }
 
@@ -97,7 +97,7 @@ body {
 
 .site-title {
   font-size: 2.5em;
-  line-height: 53px;
+  // line-height: 53px;
   a {
     color: $fake-black;
   }
@@ -115,7 +115,7 @@ body {
 
   a {
     display: block;
-    padding: 0.75em 1.25em;
+    padding: 1em 1.25em;
     border-bottom-right-radius: $radius;
     border-bottom-left-radius: $radius;
   }
@@ -159,9 +159,30 @@ body {
       // opacity: 0.8;
     }
   }
-
 }
 
 .thumb-caption {
   margin-bottom: 3em;
 }
+
+.project-desc {
+  @include span-columns(8);
+}
+
+.project-actions {
+  @include span-columns(4); 
+  @extend %ul-reset;
+}
+
+.content-img {
+  @include span-columns(4);
+  img {
+    max-width: 100%;
+  }
+}
+
+.project-desc, .project-actions {
+  margin-top: 1em;
+  margin-bottom: 2em;
+}
+
