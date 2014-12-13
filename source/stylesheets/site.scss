@@ -14,12 +14,14 @@ $cream: #C1BB7B;
 
 /* =================================== */
 
-$color-body-copy: #82665A;
-$color-body-bg: #F4F4F4;
-$color-link: #9C5A36;
+$color-body-copy: #4E4E4A;
+$color-body-bg: #F8F8F8;
+$color-link: #D18483;
 
 
 $radius: 2px;
+
+$body-copy-size: 1.25em;
 
 
 
@@ -31,6 +33,10 @@ h1, h2, h3, h4 {
   font-weight: normal;
 }
 
+h1 {
+  font-size: 1.75em;
+}
+
 h3 {
   @extend %h3;
 }
@@ -38,12 +44,20 @@ h3 {
 a {
   color: $color-link;
   text-decoration: none;
+  &:hover {
+    color: darken($color-link, 10%);
+  }
 }
 
-header {
-  margin-bottom: 2em;
-  // background-color: #947991;
+p {
+  font-size: $body-copy-size;
 }
+
+// img {
+//   -webkit-filter: grayscale(10%);
+//   -moz-filter: grayscale(10%);
+//   filter: grayscale(10%);
+// }
 
 /* ========== [ Extenders ] ============= */
 
@@ -51,10 +65,6 @@ header {
   list-style: none;
   padding: 0;
   margin: 0;
-}
-
-%h1 {
-  font-size: 1.75em;
 }
 
 %h3 {
@@ -74,6 +84,7 @@ body {
 
 .content-container {
   @include outer-container;
+  padding: 3em 0 6em 0;
 }
 
 .thumb-col {
@@ -84,10 +95,52 @@ body {
   @include clearfix;
 }
 
+.half-col {
+  @include span-columns(6);
+}
+
+.one-fourth-col {
+  @include span-columns(3);
+}
+
+.three-fourth-col {
+  @include span-columns(9);
+}
+
+.img-container {
+  img {
+    width: 100%;
+     border-radius: $radius;
+  }
+}
+
+.full-bleed {
+  background-color: lighten(#4E4E4A, 60%);
+}
+
+.desaturate { 
+  @include transition(filter, 0.1s);
+  -webkit-filter: grayscale(100%);
+  -moz-filter: grayscale(100%);
+  filter: grayscale(100%);
+  // &:hover {
+  //   -webkit-filter: grayscale(80%);
+  //   -moz-filter: grayscale(80%);
+  //   filter: grayscale(80%);
+  // }
+}
+
 /* ========== [ Header] ============= */
+
+header {
+  background-color: #4E4E4A;
+  position: fixed;
+  width: 100%;
+}
 
 .header-container {
   @include outer-container;
+  padding: 1em 0;
 }
 
 .title {
@@ -96,10 +149,8 @@ body {
 }
 
 .site-title {
-  font-size: 2.5em;
-  // line-height: 53px;
   a {
-    color: $fake-black;
+    color: lighten(#4E4E4A, 60%);
   }
 }
 
@@ -110,23 +161,20 @@ body {
 .nav-links {
   @extend %ul-reset;
   text-align: right;
-  font-size: 1.125em;
+  // font-size: 1.125em;
   font-family: 'source_sans_proregular';
 
   a {
     display: block;
-    padding: 1em 1.25em;
-    border-bottom-right-radius: $radius;
-    border-bottom-left-radius: $radius;
+    text-transform: uppercase;
+    color: #C7D1C8;
+    // padding: 1em 1.25em;
+    // border-bottom-right-radius: $radius;
+    // border-bottom-left-radius: $radius;
   }
 
   li {
     display: inline-block;
-    &.active {
-      a {
-        // background-color: #CBBEBC;
-      }
-    }
   }
 }
 
@@ -143,46 +191,74 @@ body {
 .skill-section {
   @include shift(2);
 }
+
 .company-name {
   font-family: 'source_sans_proregular';
 }
 
+/* ========== [ Welcome page ] ============= */
+
+.hero-container {
+  // height: 300px;
+  // overflow: hidden;
+}
+
+.intro-copy {
+  font-size: 2em;
+}
+
+.intro-container {
+  @extend .content-container;
+  padding-top: 9em;
+}
+
+.thumb-border-container {
+  @extend .content-container;
+  padding-top: 0;
+}
+
+.section-title {
+  margin-bottom: 1em;
+  text-transform: uppercase;
+  color: #A3A299;
+}
 /* ========== [ Design ] ============= */
 
-.project-thumb {
-  overflow: hidden;
-  img {
-    // @include transition(opacity, 0.1s);
-    border-radius: $radius;
-    // opacity: 0.5;
-    &:hover {
-      // opacity: 0.8;
-    }
-  }
-}
+// .project-thumb {
+//   overflow: hidden;
+//   img {
+//     // @include transition(opacity, 0.1s);
+//     border-radius: $radius;
+//     // opacity: 0.5;
+//     &:hover {
+//       // opacity: 0.8;
+//     }
+//   }
+// }
 
 .thumb-caption {
-  margin-bottom: 3em;
+  font-size: $body-copy-size;
+  color: $color-body-copy;
 }
 
-.project-desc {
-  @include span-columns(8);
-}
+// .project-desc {
+//   @include span-columns(8);
+// }
 
-.project-actions {
-  @include span-columns(4); 
-  @extend %ul-reset;
-}
+// .project-actions {
+//   @include span-columns(4); 
+//   @extend %ul-reset;
+// }
 
-.content-img {
-  @include span-columns(4);
-  img {
-    max-width: 100%;
-  }
-}
+// .content-img {
+//   @include span-columns(4);
+//   img {
+//     max-width: 100%;
+//   }
+// }
 
-.project-desc, .project-actions {
-  margin-top: 1em;
-  margin-bottom: 2em;
-}
+// .project-desc, .project-actions {
+//   margin-top: 1em;
+//   margin-bottom: 2em;
+// }
 
