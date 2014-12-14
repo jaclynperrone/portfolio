@@ -57,14 +57,22 @@ p {
   margin-top: 0;
 }
 
+label {
+  text-transform: uppercase;
+  font-size: 1rem;
+}
+
 .copy-right {
   padding-left: $copy-padding;
-
 }
+
 .copy-left {
   padding-right: $copy-padding;
 }
 
+select {
+  
+}
 /* ========== [ Extenders ] ============= */
 
 %ul-reset {
@@ -140,6 +148,7 @@ header {
   background-color: #4E4E4A;
   position: fixed;
   width: 100%;
+  z-index: 1;
 }
 
 .header-container {
