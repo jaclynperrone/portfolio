@@ -137,9 +137,15 @@ body {
 }
 
 .desaturate {
-  -webkit-filter: grayscale(80%);
-  -moz-filter: grayscale(80%);
-  filter: grayscale(80%);
+  @include filter(grayscale(80%));
+  // -moz-filter: grayscale(80%);
+}
+
+a .desaturate {
+  &:hover {
+  @include filter(grayscale(50%));
+  // -moz-filter: grayscale(50%);
+  }
 }
 
 /* ========== [ Header] ============= */
@@ -214,6 +220,9 @@ header {
 .hero-container {
   // height: 300px;
   // overflow: hidden;
+  // width: 100%;
+  padding-top: 2em;
+  @include filter(blur(5px));
 }
 
 .intro-copy {
@@ -221,8 +230,8 @@ header {
 }
 
 .intro-container {
-  @include outer-container;
-  padding: 9em 0 3em 0;
+  // @include outer-container;
+  // padding: 3em 0 0em 0;
 }
 
 .thumb-border-container {
