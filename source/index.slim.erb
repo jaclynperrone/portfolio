@@ -2,38 +2,53 @@
 title: Jaclyn Perrone - Design
 ---
 .img-container.hero-container
+  .dark-overlay-container
   img src="content/hero-img-cropped.jpg"
-/ .intro-copy.half-col Hi! My name is Jaclyn and I am a Product Designer. I have lots of stuff for you to look at, including art and music. Balls. Everywhere.
+  .intro-copy.half-col Hi! My name is Jaclyn and I am a Product Designer. I have lots of stuff for you to look at, including art and music. Balls. Everywhere.
  
 
 .content-container
   h1.section-title Product Design
-  .thumb-col
-    a href="responsive.html"
-      .img-container.desaturate 
-        img src="content/dupont/dupont-3.jpg"
-        .thumb-caption Front-end code and responsive prototyping
-  .thumb-col
-    a href="research.html"
-      .img-container.desaturate 
-        img src="content/mlb/dark-2.jpg"
-        .thumb-caption User-centered research and design
-  .thumb-col
-    a href="process.html"
-      .img-container.desaturate
-        img src="content/crit/crit-10-2.jpg"
-        .thumb-caption Process design
+  a.thumb-col href="responsive.html"
+    .img-container 
+      img src="content/dupont/dupont-3.jpg"
+      .thumb-caption 
+        .project-title Dupont Responsive Design
+        .project-type html/css prototyping
+  a.thumb-col href="research.html"
+    .img-container 
+      img src="content/mlb/dark-2.jpg"
+      .thumb-caption 
+        .project-title Customer Service Tool
+        .project-type User-centered research and design
+  a.thumb-col href="process.html"
+    .img-container
+      img src="content/crit/crit-10-2.jpg"
+      .thumb-caption 
+        .project-title Design Critique
+        .project-type Process design
 
 
 .full-bleed
   .content-container
     h1.section-title Other musings 
-    .img-container.half-col
-      a href="http://jaclynperrone.com" target="_blank"
-        img src="content/painting.jpg"
-        .thumb-caption Here are my paintings and drawings
-    .img-container.half-col
-      a href="https://twiga.bandcamp.com/" target="_blank"
-        img src="content/twiga.jpg"
-        .thumb-caption I play bass in a band called Twiga. Check out our first ep!
+    .thumb-list-view 
+      .img-container
+        a href="http://jaclynperrone.com" target="_blank"
+          img src="content/painting.jpg"
+      .thumb-caption 
+        .project-type Paintings and drawings
+        p 
+          | Though my subjects and media have varied over the years, my appreciation for visual arts has never changed.  
+          a.cta href="http://jaclynperrone.com" target="_blank" Here is some of my art
+
+    .thumb-list-view 
+      .img-container
+        a href="https://twiga.bandcamp.com/" target="_blank"
+          img src="content/twiga.jpg"
+      .thumb-caption 
+        .project-type Music
+        p 
+          | I play bass in a band called Twiga. 
+          a.cta href="https://twiga.bandcamp.com/" target="_blank" Check out our first ep!
 

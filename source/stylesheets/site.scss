@@ -7,16 +7,18 @@
 
 /* ========== [ Colors ] ============= */
 
-$fake-black: #1F1917;
-$dark-brown: #241205;
-$powder-blue: #667C74;
-$cream: #C1BB7B;
+
 
 /* =================================== */
 
-$color-body-copy: #4E4E4A;
+$color-text-dark: #4E4E4A;
+$color-accent-light: lighten($color-text-dark, 60%);
+$color-accent-dark: #A3A299;
 $color-body-bg: #F8F8F8;
+$color-text-light: $color-body-bg;
 $color-link: #D18483;
+$color-link-hover: darken($color-link, 10%);
+
 
 
 $radius: 2px;
@@ -36,18 +38,18 @@ h1, h2, h3, h4 {
 }
 
 h1 {
-  font-size: 1.75em;
+  font-size: 2em;
 }
 
-h3 {
-  @extend %h3;
+h2 {
+  font-size: 1.75em;
 }
 
 a {
   color: $color-link;
   text-decoration: none;
   &:hover {
-    color: darken($color-link, 10%);
+    color: $color-link-hover;
   }
 }
 
@@ -62,17 +64,6 @@ label {
   font-size: 1rem;
 }
 
-.copy-right {
-  padding-left: $copy-padding;
-}
-
-.copy-left {
-  padding-right: $copy-padding;
-}
-
-select {
-  
-}
 /* ========== [ Extenders ] ============= */
 
 %ul-reset {
@@ -81,28 +72,18 @@ select {
   margin: 0;
 }
 
-%h3 {
-  font-size: 1em;
-  text-transform: uppercase;
-}
-
 
 /* ========== [ Global ] ============= */
 
 body {
   font: 1em/1.6 'source_sans_prolight', arial, sans-serif;
-  color: $color-body-copy;
+  color: $color-text-dark;
   background-color: $color-body-bg;
-  // background: image-url('site-bg.png');
 }
 
 .content-container {
   @include outer-container;
   padding: 3em 0 6em 0;
-}
-
-.thumb-col {
-  @include span-columns(4);
 }
 
 .content-row {
@@ -133,7 +114,7 @@ body {
 }
 
 .full-bleed {
-  background-color: lighten(#4E4E4A, 60%);
+  background-color: $color-accent-light;
 }
 
 .desaturate {
@@ -148,10 +129,22 @@ a .desaturate {
   }
 }
 
+.copy-right {
+  padding-left: $copy-padding;
+}
+
+.copy-left {
+  padding-right: $copy-padding;
+}
+
+.cta {
+  display: block;
+}
+
 /* ========== [ Header] ============= */
 
 header {
-  background-color: #4E4E4A;
+  background-color: #2a2a2a;
   position: fixed;
   width: 100%;
   z-index: 1;
@@ -159,7 +152,7 @@ header {
 
 .header-container {
   @include outer-container;
-  padding: 1em 0;
+  padding: 0.5em 0;
 }
 
 .title {
@@ -169,7 +162,7 @@ header {
 
 .site-title {
   a {
-    color: lighten(#4E4E4A, 60%);
+    color: $color-accent-light;
   }
 }
 
@@ -180,16 +173,11 @@ header {
 .nav-links {
   @extend %ul-reset;
   text-align: right;
-  // font-size: 1.125em;
   font-family: 'source_sans_proregular';
 
   a {
     display: block;
-    text-transform: uppercase;
-    color: #C7D1C8;
-    // padding: 1em 1.25em;
-    // border-bottom-right-radius: $radius;
-    // border-bottom-left-radius: $radius;
+    padding-top: 0.75em;
   }
 
   li {
@@ -219,16 +207,31 @@ header {
 
 .hero-container {
   padding-top: 2em;
-  @include filter(blur(5px));
+  position: relative;
+  
+  // @include filter(blur(4px));
+}
+
+.dark-overlay-container {
+  background: url('../content/dark-overlay.png');
+  position: absolute;
+  top: 0;
+  bottom: 8px;
+  left:0;
+  right: 0;
 }
 
 .intro-copy {
   font-size: 2em;
+  position: absolute;
+  bottom: 30px;
+  left: 30px;
+  color: $color-text-light;
 }
 
 .intro-container {
   @include outer-container;
-  padding: 9em 0 3em 0;
+  padding: 5em 0 3em 0;
 }
 
 .thumb-border-container {
@@ -239,45 +242,79 @@ header {
 .section-title {
   margin-bottom: 1em;
   text-transform: uppercase;
-  color: #A3A299;
+  color: $color-accent-dark;
 }
-/* ========== [ Design ] ============= */
 
-// .project-thumb {
-//   overflow: hidden;
-//   img {
-//     // @include transition(opacity, 0.1s);
-//     border-radius: $radius;
-//     // opacity: 0.5;
-//     &:hover {
-//       // opacity: 0.8;
-//     }
-//   }
-// }
+.thumb-col {
+  @include span-columns(4);
+  @include transition(background-color 0.1s);
+  background-color: #fff;
+  border-radius: $radius;
+  padding: 1em;
+  &:hover {
+    background-color: darken($color-body-bg, 2%);
+    .project-title {
+      color: $color-link-hover;
+    }
+    img {
+      @include filter(grayscale(50%));
+    }
+  }
+}
+
+.thumb-half-col {
+  @extend .thumb-col;
+  @include span-columns(6);
+}
+
+.thumb-list-view {
+  @include outer-container;
+  margin-bottom: 1em;
+
+  .img-container {
+    @include span-columns(4);
+    &:hover {
+      img {
+        @include filter(grayscale(60%));
+      }
+    }
+  }
+  .thumb-caption {
+    @include span-columns(8);
+  }
+
+}
 
 .thumb-caption {
-  font-size: $body-copy-size;
-  color: $color-body-copy;
+  font-size: 1.5em;
+  color: $color-text-dark;
 }
 
-// .project-desc {
-//   @include span-columns(8);
-// }
+.project-title {
+  font-weight: bold;
+  color: $color-link;
+}
 
-// .project-actions {
-//   @include span-columns(4); 
-//   @extend %ul-reset;
-// }
+.project-type {
+  text-transform: uppercase;
+  font-size: 0.7em;
+  color: $color-accent-dark;
+}
 
-// .content-img {
-//   @include span-columns(4);
-//   img {
-//     max-width: 100%;
-//   }
-// }
 
-// .project-desc, .project-actions {
-//   margin-top: 1em;
-//   margin-bottom: 2em;
-// }
+/* ========== [ Design ] ============= */
 
+.top-navigation {
+  padding: 1em 0 3em 0;
+}
+
+.bottom-navigation {
+  @include outer-container;
+  padding-bottom: 3em;
+}
+
+.forward {
+  display: block;
+  float: right;
+
+}
