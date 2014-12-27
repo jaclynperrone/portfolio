@@ -86,8 +86,9 @@ body {
   padding: 3em 0 6em 0;
 }
 
-.content-row {
-  @include clearfix;
+.row-container {
+  @include outer-container;
+  padding: 3em 0;
 }
 
 .half-col {
@@ -188,19 +189,33 @@ header {
 /* ========== [ Resume ] ============= */
 
 .resume-header-col {
-  @include span-columns(2);
+  @extend .one-fourth-col;
+  font-size: 1.25em;
 }
 
 .resume-detail-col {
-  @include span-columns(10);
+  @extend .half-col;
 }
 
 .skill-section {
   @include shift(2);
 }
 
-.company-name {
+.company-role {
   font-family: 'source_sans_proregular';
+  font-size: 1.25em;
+}
+
+.resume-list {
+  padding-left: 0;
+  list-style-position: inside;
+  line-height: 1.75em;
+  li {
+    color: #999;
+    span {
+      color: $color-text-dark;
+    }
+  }
 }
 
 /* ========== [ Welcome page ] ============= */
@@ -248,11 +263,11 @@ header {
 .thumb-col {
   @include span-columns(4);
   @include transition(background-color 0.1s);
-  background-color: #fff;
+  // background-color: #fff;
   border-radius: $radius;
-  padding: 1em;
+  // padding: 1em;
   &:hover {
-    background-color: darken($color-body-bg, 2%);
+    // background-color: darken($color-body-bg, 2%);
     .project-title {
       color: $color-link-hover;
     }
