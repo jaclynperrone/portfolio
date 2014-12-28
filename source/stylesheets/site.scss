@@ -223,12 +223,13 @@ header {
 .hero-container {
   padding-top: 2em;
   position: relative;
-  
   // @include filter(blur(4px));
 }
 
 .dark-overlay-container {
-  background: url('../content/dark-overlay.png');
+  // background: url('../content/dark-overlay.png');
+  background-color: #000;
+  opacity: 0.6;
   position: absolute;
   top: 0;
   bottom: 8px;
@@ -237,10 +238,10 @@ header {
 }
 
 .intro-copy {
-  font-size: 2em;
+  font-size: 3em;
   position: absolute;
-  bottom: 30px;
-  left: 30px;
+  top: 3em;
+  left: 1.875em;
   color: $color-text-light;
 }
 
@@ -265,7 +266,7 @@ header {
   @include transition(background-color 0.1s);
   // background-color: #fff;
   border-radius: $radius;
-  // padding: 1em;
+  padding: 1em;
   &:hover {
     // background-color: darken($color-body-bg, 2%);
     .project-title {
