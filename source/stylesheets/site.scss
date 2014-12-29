@@ -1,6 +1,7 @@
 @import 'bourbon/bourbon.scss';
 @import 'neat/neat.scss';
 @import 'fonts';
+@import 'font-awesome.min';
 
 // $max-width: em(1024);
 
@@ -26,6 +27,10 @@ $radius: 2px;
 $body-copy-size: 1.25em;
 
 $copy-padding: 1.5em;
+
+//Breakpoints
+
+$mobile: new-breakpoint(max-width 500px);
 
 
 
@@ -72,6 +77,13 @@ label {
   margin: 0;
 }
 
+%icon {
+  &:before {
+    @extend .fa;
+    padding-right: 0.5em;
+  }
+}
+
 
 /* ========== [ Global ] ============= */
 
@@ -83,28 +95,46 @@ body {
 
 .content-container {
   @include outer-container;
-  padding: 3em 0 6em 0;
+  padding: 3em 1rem;
 }
 
-.row-container {
+.thumb-container {
   @include outer-container;
   padding: 3em 0;
+  .section-title {
+    padding: 0 1rem;
+  }
 }
 
 .half-col {
   @include span-columns(6);
+  @include media($mobile) {
+    @include span-columns(12);
+  }
 }
 
 .one-third-col {
   @include span-columns(4); 
+  @include media($mobile) {
+    @include span-columns(12);
+    margin: 1em 0;
+  }
 }
+
 
 .one-fourth-col {
   @include span-columns(3);
+  @include media($mobile) {
+    @include span-columns(6);
+    @include omega(2n);
+  }
 }
 
 .three-fourth-col {
   @include span-columns(9);
+  @include media($mobile) {
+    @include span-columns(12);
+  }
 }
 
 .img-container {
@@ -132,10 +162,16 @@ a .desaturate {
 
 .copy-right {
   padding-left: $copy-padding;
+  @include media($mobile) {
+    padding-left: 0;
+  }
 }
 
 .copy-left {
   padding-right: $copy-padding;
+  @include media($mobile) {
+    padding-right: 0;
+  }
 }
 
 .cta {
@@ -153,7 +189,7 @@ header {
 
 .header-container {
   @include outer-container;
-  padding: 0.5em 0;
+  padding: 0.5em 1rem;
 }
 
 .title {
@@ -164,6 +200,9 @@ header {
 .site-title {
   a {
     color: $color-accent-light;
+  }
+  @include media($mobile) {
+    font-size: 1.5em;
   }
 }
 
@@ -187,6 +226,12 @@ header {
 }
 
 /* ========== [ Resume ] ============= */
+
+.download-resume {
+  @extend %icon;
+  @extend .fa-download;
+  float:right;
+}
 
 .resume-header-col {
   @extend .one-fourth-col;
@@ -223,11 +268,9 @@ header {
 .hero-container {
   padding-top: 2em;
   position: relative;
-  // @include filter(blur(4px));
 }
 
 .dark-overlay-container {
-  // background: url('../content/dark-overlay.png');
   background-color: #000;
   opacity: 0.6;
   position: absolute;
@@ -237,17 +280,35 @@ header {
   right: 0;
 }
 
-.intro-copy {
-  font-size: 3em;
+.hero-copy-outer-container {
   position: absolute;
-  top: 3em;
-  left: 1.875em;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.hero-copy-inner-container {
+  @include outer-container;
+  padding: 0 1rem;
+  
+
+}
+
+.hero-copy {
+  @extend .half-col;
+  font-size: 3em;
+  position: relative;
+  margin-top: 2em;
   color: $color-text-light;
+  @include media($mobile) {
+    font-size: 1em;
+  }
 }
 
 .intro-container {
   @include outer-container;
-  padding: 5em 0 3em 0;
+  padding: 5em 1rem 3em 1rem;
 }
 
 .thumb-border-container {
@@ -262,7 +323,7 @@ header {
 }
 
 .thumb-col {
-  @include span-columns(4);
+  @extend .one-third-col;
   @include transition(background-color 0.1s);
   // background-color: #fff;
   border-radius: $radius;
@@ -329,11 +390,23 @@ header {
 
 .bottom-navigation {
   @include outer-container;
-  padding-bottom: 3em;
+  padding: 0 1rem 3em 1rem;
+
 }
 
 .forward {
+  &:after {
+    @extend .fa;
+    // fa-caret-right
+    content: '\f0da';
+    padding-left: 0.5em;
+  }
   display: block;
   float: right;
-
 }
+
+.back {
+  @extend %icon;
+  @extend .fa-caret-left;
+}
+
