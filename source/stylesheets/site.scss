@@ -420,6 +420,8 @@ header {
 
 /* ========== [ Prototype ] ============= */
 
+$color-silhouette: #666;
+
 .prototype-container {
   text-align: center;
   padding-bottom: 200px;
@@ -453,7 +455,7 @@ button.breakpoint-button {
 }
 
 .device-wrapper {
-  background-color: #666;
+  background-color: $color-silhouette;
   padding: 50px;
   border-radius: 40px;
   margin: 0px auto;
@@ -482,7 +484,7 @@ button.breakpoint-button {
   height: 200px;
   margin: -100px auto 0 auto;
   border-radius: 0 0 10px 10px;
-  background: #666;
+  background-color: $color-silhouette;
   transform: perspective(5px) rotateX(1deg);
   transform-origin: bottom;
   transition: opacity 0.3s;
