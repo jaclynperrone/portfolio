@@ -23,6 +23,31 @@ $(function(){
     $('#trapezoid').css("opacity", "0.0");
   });
 
+
+  //mobile navigation
+  var backNavText = $('.back').html();
+  var forwardNavText = $('.forward').html();
+
+  function mobileNavigation(){
+    var winW = window.innerWidth;
+
+      if (winW <= 500) {
+        console.log(winW);
+        $('.back').html('Previous');
+        $('.forward').html('Next');
+      }
+      else {
+        $('.back').html(backNavText);
+        $('.forward').html(forwardNavText);
+      }
+  }
+
+  mobileNavigation();
+
+  $(window).resize(function(){
+      mobileNavigation();
+  });
+
 });
 
 
