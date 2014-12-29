@@ -456,25 +456,65 @@ button.breakpoint-button {
 
 .device-wrapper {
   background-color: $color-silhouette;
-  padding: 50px;
+  padding: 20px 50px 0px 50px;
   border-radius: 40px;
   margin: 0px auto;
   transition: width 0.7s ease-in-out, height 0.7s ease-in-out, padding 0.7s ease-in-out;
+  .mic-slot {
+    opacity: 1;
+    margin: 0 auto 20px auto;
+    width: 10px;
+    height: 10px;
+    border-radius: 5px;
+    background-color: lighten($color-silhouette, 10%);
+    transition: width 0.4s ease-in-out;
+  }
+  #dupont-iframe {
+    transition: height 0.7s;
+  }
+  .home-button {
+    opacity: 0.0;
+    background-color: lighten($color-silhouette, 10%);
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    margin: 10px auto 0 auto;
+    transition: opacity 0.3s;
+    transition-delay: 0.0s;
+  }
+
   &.desktop {
     width: 100%;
-    height: 700px;
+    #dupont-iframe {
+      height: 600px;
+    }
   }
+
   &.tablet {
-    width: 868px;
-    height: 700px;
+    width: 780px;
+    padding: 20px 30px 20px 30px;
+    #dupont-iframe {
+      height: 900px;
+    }
+    .home-button {
+      opacity: 1;
+      transition-delay: 0.7s;
+    }
   }
+
   &.mobile {
-    width: 520px;
-    height: 860px;
+    width: 500px;
+    padding: 20px 20px 20px 20px;
+    .mic-slot {
+      width: 70px;
+    }
     #dupont-iframe {
       height: 740px;
     }
-    padding: 50px 20px 70px 20px;
+    .home-button {
+      opacity: 1;
+      transition-delay: 0.7s;
+    }
   }
 }
 
