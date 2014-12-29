@@ -104,6 +104,12 @@ body {
   .section-title {
     padding: 0 1rem;
   }
+  @include media($mobile) {
+    padding: 2em 0;
+    .section-title {
+      margin-bottom: 0;
+    }
+  }
 }
 
 .half-col {
@@ -226,6 +232,10 @@ header {
   li {
     display: inline-block;
   }
+
+  @include media($mobile) {
+    font-size: 1em;
+  }
 }
 
 /* ========== [ Resume ] ============= */
@@ -234,6 +244,9 @@ header {
   @extend %icon;
   @extend .fa-download;
   float:right;
+  @include media($mobile) {
+    float: none;
+  }
 }
 
 .resume-header-col {
@@ -272,6 +285,7 @@ header {
   @extend .img-container;
   padding-top: 2em;
   position: relative;
+  overflow: hidden;
   @include media($mobile) {
     img {
       width: auto;
@@ -317,6 +331,9 @@ header {
 .intro-container {
   @include outer-container;
   padding: 5em 1rem 3em 1rem;
+  @include media($mobile) {
+   padding-top: 3em;
+  }
 }
 
 .thumb-border-container {
@@ -393,7 +410,7 @@ header {
 /* ========== [ Design ] ============= */
 
 .top-navigation {
-  padding: 1em 0 3em 0;
+  padding: 1em 0 1.5em 0;
 }
 
 .bottom-navigation {
