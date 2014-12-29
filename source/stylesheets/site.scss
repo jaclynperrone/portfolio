@@ -163,7 +163,7 @@ body {
 }
 
 .full-bleed {
-  background-color: $color-fullbleed;
+  background: url('../content/brushed.png') $color-fullbleed;
 }
 
 .desaturate {
@@ -203,7 +203,7 @@ header {
   position: fixed;
   width: 100%;
   z-index: 1;
-  border-bottom: 3px $color-accent-dark solid;
+  border-bottom: 4px $color-accent-dark solid;
 }
 
 .header-container {
@@ -380,7 +380,6 @@ header {
 .thumb-col {
   @extend .one-third-col;
   @include transition(background-color 0.1s);
-  // background-color: #fff;
   border-radius: $radius;
   padding: 1em;
   &:hover {
