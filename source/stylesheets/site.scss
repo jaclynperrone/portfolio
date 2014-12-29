@@ -443,6 +443,13 @@ button.breakpoint-button {
   &:hover {
     background-color: #ccc;
   }
+  &:focus {
+    outline: 0;
+  }
+  &.active {
+    background-color: $color-link;
+    color: #fff;
+  }
 }
 
 .device-wrapper {
