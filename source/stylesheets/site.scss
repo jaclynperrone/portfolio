@@ -181,6 +181,7 @@ a .desaturate {
 /* ========== [ Header] ============= */
 
 header {
+  // display: none;
   background-color: #2a2a2a;
   position: fixed;
   width: 100%;
@@ -266,8 +267,14 @@ header {
 /* ========== [ Welcome page ] ============= */
 
 .hero-container {
+  @extend .img-container;
   padding-top: 2em;
   position: relative;
+  @include media($mobile) {
+    img {
+      width: auto;
+    }
+  }
 }
 
 .dark-overlay-container {
@@ -282,6 +289,7 @@ header {
 
 .hero-copy-outer-container {
   position: absolute;
+  width: 100%;
   top: 0;
   left: 0;
   right: 0;
@@ -290,21 +298,19 @@ header {
 
 .hero-copy-inner-container {
   @include outer-container;
-  padding: 0 1rem;
-  
-
+  padding: 6rem 1rem 0 1rem;
+  position: relative;
 }
 
 .hero-copy {
-  @extend .half-col;
-  font-size: 3em;
-  position: relative;
-  margin-top: 2em;
+  @extend .three-fourth-col;
+  font-size: 2.5em;
   color: $color-text-light;
   @include media($mobile) {
-    font-size: 1em;
+    font-size: 1.5em;
   }
 }
+
 
 .intro-container {
   @include outer-container;
