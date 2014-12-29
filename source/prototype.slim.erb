@@ -1,19 +1,22 @@
 ---
 title: Jaclyn Perrone - Responsive Prototype
 ---
-
+br
+br
 .full-bleed
-  .content-container
+  .content-container.prototype-container
     h2.section-title Iframe demo
     p 
       | Select different breakpoints to see how this responsive prototype responds. 
-      a href="content/dupont/prototype/index.html" target="_blank" Click here to play with the full prototype.
-    p
-      label 
-        | Current breakpoint:
-        select#breakpoint-select
-          option value="desktop" Desktop
-          option value="tablet" Tablet
-          option value="mobile" Mobile
+
+    .button-wrapper
+      button.breakpoint-button.desktop-button
+        i.fa.fa-desktop
+      button.breakpoint-button.tablet-button
+        i.fa.fa-tablet
+      button.breakpoint-button.mobile-button
+        i.fa.fa-mobile
     .device-wrapper
       iframe#dupont-iframe src="content/dupont/prototype/embedded.html" width="100%" height="600" scrolling="no"
+
+    #trapezoid
