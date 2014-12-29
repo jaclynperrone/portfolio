@@ -181,7 +181,6 @@ a .desaturate {
 /* ========== [ Header] ============= */
 
 header {
-  // display: none;
   background-color: #2a2a2a;
   position: fixed;
   width: 100%;
@@ -190,12 +189,14 @@ header {
 
 .header-container {
   @include outer-container;
-  padding: 0.5em 1rem;
+  padding: 0.25em 1rem;
+  display: table;
+  width: 100%;
 }
 
 .title {
-  @include span-columns(6);
   position: relative;
+  display: table-cell;
 }
 
 .site-title {
@@ -208,17 +209,18 @@ header {
 }
 
 .site-nav {
-  @include span-columns(6);
+  display: table-cell;
+  vertical-align: middle;
 }
 
 .nav-links {
   @extend %ul-reset;
   text-align: right;
   font-family: 'source_sans_proregular';
+  font-size: 1.125em;
 
   a {
     display: block;
-    padding-top: 0.75em;
   }
 
   li {
