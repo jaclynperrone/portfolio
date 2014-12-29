@@ -208,7 +208,6 @@ header {
 
 .header-container {
   @include outer-container;
-  font-family: 'source_sans_proextralight';
   padding: 0.5em 1rem;
   display: table;
   width: 100%;
@@ -218,12 +217,16 @@ header {
 .title {
   position: relative;
   display: table-cell;
+  vertical-align: middle;
 }
 
 .site-title {
-  font-size: 1.25em;
   a {
-    color: $color-text-light;
+    display: block;
+    width: 155px;
+    height: 24px;
+    text-indent: -9999px;
+    background: url('../content/site-title.png');  
   }
   @include media($mobile) {
     font-size: 1.5em;
