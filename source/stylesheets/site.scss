@@ -12,22 +12,21 @@
 
 /* =================================== */
 
-$color-theme: #998079;
-$color-theme-dark: darken($color-theme, 45%);
-$color-theme-light: lighten($color-theme, 40%);
+$color-theme: #4E4E4A;
+$color-theme-light: lighten($color-theme, 60%);
 
-$color-accent: #6F2D57;
+$color-accent: #A3A299;
 $color-accent-dark: darken($color-accent, 10%);
 $color-accent-light: lighten($color-accent, 30%);
 
-$color-body-bg: lighten($color-theme-light, 30%);
+$color-body-bg: #F8F8F8;
 
-$color-text-dark: $color-theme-dark;
+$color-text-dark: $color-theme;
 $color-text-light: $color-theme-light;
 
 $color-fullbleed: $color-theme-light;
 
-$color-link: $color-accent-light;
+$color-link: #D18483;
 $color-link-hover: darken($color-link, 10%);
 
 $radius: 2px;
@@ -372,7 +371,7 @@ header {
 .section-title {
   margin-bottom: 1em;
   text-transform: uppercase;
-  color: $color-theme;
+  color: $color-accent;
 }
 
 .thumb-col {
