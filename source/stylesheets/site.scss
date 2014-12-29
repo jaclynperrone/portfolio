@@ -12,23 +12,21 @@
 
 /* =================================== */
 
-$color-bg-light: #FBF7EC; //cream
-$color-bg-dark: #D3D0C5; //light brown
+$color-theme: #998079;
+$color-theme-dark: darken($color-theme, 43%);
+$color-theme-light: lighten($color-theme, 40%);
 
-$color-accent-dark: #234E58; //teal
-$color-accent-light: #14979D; //light teal
+$color-accent: #d18483;
 
-$color-body-bg: $color-bg-light;
-$color-fullbleed: #DCD9CE;
+$color-body-bg: lighten($color-theme-light, 30%);
 
-$color-text-dark: #555240;
-$color-text-light: $color-bg-light;
+$color-text-dark: $color-theme-dark;
+$color-text-light: $color-theme-light;
 
-$color-fullbleed: $color-bg-dark;
+$color-fullbleed: $color-theme-light;
 
-$color-link: #CF5C2F; //tomato
-$color-link-hover: darken($color-link, 10%);
-
+$color-link: $color-accent;
+$color-link-hover: darken($color-accent, 10%);
 
 $radius: 2px;
 
@@ -195,7 +193,7 @@ a .desaturate {
 /* ========== [ Header] ============= */
 
 header {
-  background-color: $color-accent-dark;
+  background-color: $color-theme-dark;
   position: fixed;
   width: 100%;
   z-index: 1;
@@ -364,7 +362,7 @@ header {
 .section-title {
   margin-bottom: 1em;
   text-transform: uppercase;
-  color: $color-accent-dark;
+  color: $color-theme;
 }
 
 .thumb-col {
@@ -420,7 +418,7 @@ header {
 .project-type {
   text-transform: uppercase;
   font-size: 0.7em;
-  color: $color-accent-light;
+  color: $color-theme;
 }
 
 .outro-copy {
@@ -508,7 +506,6 @@ button.breakpoint-button {
   }
   #dupont-iframe {
     transition: height 0.7s;
-    border: 3px solid darken($color-silhouette, 15%);
   }
   .home-button {
     opacity: 0.0;
@@ -544,7 +541,7 @@ button.breakpoint-button {
     width: 500px;
     padding: 20px 20px 20px 20px;
     .mic-slot {
-      width: 60px;
+      width: 70px;
     }
     #dupont-iframe {
       height: 740px;
