@@ -451,6 +451,22 @@ button.breakpoint-button {
   border-radius: 40px;
   margin: 0px auto;
   transition: width 0.7s ease-in-out, height 0.7s ease-in-out, padding 0.7s ease-in-out;
+  &.desktop {
+    width: 100%;
+    height: 700px;
+  }
+  &.tablet {
+    width: 868px;
+    height: 700px;
+  }
+  &.mobile {
+    width: 520px;
+    height: 860px;
+    #dupont-iframe {
+      height: 740px;
+    }
+    padding: 50px 20px 70px 20px;
+  }
 }
 
 #trapezoid {
