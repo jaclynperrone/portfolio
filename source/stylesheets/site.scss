@@ -96,6 +96,18 @@ img {
   }
 }
 
+%button {
+  @include transition(background-color 0.1s);
+  background-color: $color-link;
+  color: #fff;
+  padding: 0.25em 1em;
+  border-radius: $radius;
+  &:hover {
+    background-color: $color-link-hover;
+    color: #fff;
+  }
+}
+
 
 /* ========== [ Global ] ============= */
 
@@ -464,13 +476,22 @@ header {
   @extend .fa-caret-left;
 }
 
+.launch-prototype {
+  @extend %button;
+  &:after {
+    @extend .fa;
+    content: '\f0da';
+    padding-left: 0.5em;
+  }
+}
+
 /* ========== [ Prototype ] ============= */
 
 $color-silhouette: #666;
 
 .prototype-container {
   text-align: center;
-  padding-bottom: 200px;
+  padding-bottom: 10em;
   p {
     margin-bottom: 0px;
   }
