@@ -220,7 +220,7 @@ header {
 
 .header-container {
   @include outer-container;
-  padding: 0.5em 1rem;
+  padding: 0.6em 1rem;
   display: table;
   width: 100%;
 
@@ -235,8 +235,8 @@ header {
 .site-title {
   a {
     display: block;
-    width: 155px;
-    height: 24px;
+    width: 175px;
+    height: 27px;
     text-indent: -9999px;
     background: url('../content/site-title.png');  
   }
