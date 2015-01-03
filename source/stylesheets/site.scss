@@ -421,7 +421,10 @@ header {
   @include transition(background-color 0.1s);
   border-radius: $radius;
   padding: 1em;
-
+  cursor: pointer;
+    img {
+      @include filter(grayscale(50%));
+    }
   &:hover {
     -moz-box-shadow:    1px 1px 1px 0px #ccc;
     -webkit-box-shadow: 1px 1px 1px 0px #ccc;
@@ -432,7 +435,7 @@ header {
       color: $color-link-hover;
     }
     img {
-      @include filter(grayscale(100%));
+      @include filter(grayscale(0%));
     }
   }
 }
