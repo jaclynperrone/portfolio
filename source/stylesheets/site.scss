@@ -301,6 +301,11 @@ header {
   .section-title {
     margin-bottom: 0;
   }
+  @include media($mobile) {
+    .resume-detail-col {
+      @include shift(0);
+    }
+  }
 }
 
 .company-role {
@@ -324,7 +329,6 @@ header {
 
 .hero-container {
   @extend .img-container, .full-bleed;
-  padding-top: 2em;
   position: relative;
   overflow: hidden;
   @include media($mobile) {
@@ -357,15 +361,38 @@ header {
   @include outer-container;
   padding: 6rem 1rem 0 1rem;
   position: relative;
+  @include media($mobile) {
+    padding-top: 4.5rem;
+  }
 }
 
 .hero-copy {
   @extend .three-fourth-col;
   font-family: 'source_sans_proextralight';
+  color: $color-body-bg;
+}
+
+.hero-headline {
   font-size: 2.5em;
-  color: $color-text-light;
+  margin-bottom: 2rem;
   @include media($mobile) {
     font-size: 1.5em;
+    margin-bottom: 0.5rem;
+  }
+
+}
+
+.hero-body {
+  font-size: 1.25em;
+  color: $color-text-light;
+  @include media($mobile) {
+    font-size: 1em;
+  }
+
+  ul {
+    margin: 0.5em 0 0 0;
+    list-style-position: inside;
+    padding: 0;
   }
 }
 
