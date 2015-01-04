@@ -39,6 +39,8 @@ $copy-padding: 1.5em;
 
 $mobile: new-breakpoint(max-width 500px);
 
+$tablet: new-breakpoint(max-width 760px);
+
 
 
 /* ========== [ Resets ] ============= */
@@ -102,6 +104,7 @@ img {
   color: #fff;
   padding: 0.25em 1em;
   border-radius: $radius;
+  display: block;
   &:hover {
     background-color: $color-link-hover;
     color: #fff;
@@ -120,6 +123,9 @@ body {
 .content-container {
   @include outer-container;
   padding: 3em 1rem;
+  @include media($mobile) {
+    padding: 2em 1rem;
+  }
 }
 
 .thumb-container {
@@ -220,10 +226,9 @@ header {
 
 .header-container {
   @include outer-container;
-  padding: 0.6em 1rem;
+  padding: 0.5em 1rem;
   display: table;
   width: 100%;
-
 }
 
 .title {
@@ -233,15 +238,20 @@ header {
 }
 
 .site-title {
+  background-image: url('../content/site-title.png');
+  background-size: contain;
+  width: 175px;
+  height: 27px;
   a {
     display: block;
-    width: 175px;
-    height: 27px;
     text-indent: -9999px;
-    background: url('../content/site-title.png');  
+    width: 100%;
+    height: 100%;
   }
+
   @include media($mobile) {
-    font-size: 1.5em;
+    width: 140px;
+    height: 22px;
   }
 }
 
@@ -283,6 +293,10 @@ header {
 .resume-header-col {
   @extend .one-fourth-col;
   font-size: 1.25em;
+
+  @include media($mobile) {
+    width: 100%;
+  }
 }
 
 .resume-detail-col {
@@ -300,7 +314,11 @@ header {
 
   .section-title {
     margin-bottom: 0;
+    @include media($mobile) {
+      margin-bottom: 1em;
+    }
   }
+
   @include media($mobile) {
     .resume-detail-col {
       @include shift(0);
@@ -327,59 +345,40 @@ header {
 
 /* ========== [ Welcome page ] ============= */
 
-.hero-container {
-  @extend .img-container, .full-bleed;
-  position: relative;
-  overflow: hidden;
-  @include media($mobile) {
-    img {
-      width: auto;
-    }
-  }
+.hero-container-overlay {
+  background-color: rgba(0,0,0,0.7);
 }
 
-.dark-overlay-container {
-  background-color: #000;
-  opacity: 0.7;
-  position: absolute;
-  top: 0;
-  bottom: 8px;
-  left:0;
-  right: 0;
+.hero-container {
+  background-image: url('../content/hero-img-cropped.jpg');
+  background-size: cover;
+  position: relative;
 }
 
 .hero-copy-outer-container {
-  position: absolute;
-  width: 100%;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-}
-
-.hero-copy-inner-container {
   @include outer-container;
-  padding: 6rem 1rem 0 1rem;
-  position: relative;
-  @include media($mobile) {
-    padding-top: 4.5rem;
-  }
+  padding: 4em 1rem 2em 1rem;
 }
 
 .hero-copy {
   @extend .three-fourth-col;
   font-family: 'source_sans_proextralight';
   color: $color-body-bg;
+  @include media($tablet) {
+    width: 100%;
+  }
 }
 
 .hero-headline {
   font-size: 2.5em;
   margin-bottom: 2rem;
+  @include media($tablet) {
+    font-size: 2em;
+  }
   @include media($mobile) {
     font-size: 1.5em;
-    margin-bottom: 0.5rem;
+    margin-bottom: 1rem;
   }
-
 }
 
 .hero-body {
@@ -401,7 +400,7 @@ header {
   @include outer-container;
   padding: 5em 1rem 3em 1rem;
   @include media($mobile) {
-   padding-top: 3em;
+   padding: 3em 1rem 1em 1rem;
   }
 }
 
@@ -437,7 +436,16 @@ header {
     img {
       @include filter(grayscale(0%));
     }
+
+    @include media($mobile) {
+      background-color: transparent;
+      box-shadow: none;
+      img {
+        @include filter(grayscale(50%));
+      }
+    }
   }
+
 }
 
 .thumb-half-col {
@@ -517,6 +525,9 @@ header {
     @extend .fa;
     content: '\f0da';
     padding-left: 0.5em;
+  }
+  @include media($mobile) {
+    display: none;
   }
 }
 
