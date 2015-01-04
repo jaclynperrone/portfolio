@@ -1,3 +1,10 @@
+GIT
+  remote: git://github.com/eventmachine/eventmachine.git
+  revision: 487305151d1f5441b597400fa8d062361e2d86b2
+  branch: master
+  specs:
+    eventmachine (1.0.4)
+
 GEM
   remote: http://rubygems.org/
   specs:
@@ -30,7 +37,6 @@ GEM
       eventmachine (>= 0.12.9)
       http_parser.rb (~> 0.6.0)
     erubis (2.7.0)
-    eventmachine (1.0.3)
     execjs (2.2.1)
     ffi (1.9.3)
     haml (4.0.5)
@@ -127,6 +133,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  eventmachine!
   middleman (~> 3.3.6)
   middleman-livereload (~> 3.1.0)
   slim
