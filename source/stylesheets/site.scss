@@ -8,10 +8,6 @@
 
 /* ========== [ Colors ] ============= */
 
-
-
-/* =================================== */
-
 $color-theme: #4E4E4A;
 $color-theme-light: lighten($color-theme, 60%);
 
@@ -270,20 +266,22 @@ header {
 .header-container {
   @include outer-container;
   padding: 0.5em 1rem;
-  display: table;
   width: 100%;
 }
 
-.title {
-  position: relative;
-  display: table-cell;
-  vertical-align: middle;
-}
-
-.site-title {
+.header-name {
   font-size: 1.25em;
   letter-spacing: 0.15em;
   text-transform: uppercase;
+  float: left;
+}
+
+.header-resume {
+  float: right;
+  line-height: 2em;
+  @include media($mobile) {
+    display: none;
+  }
 }
 
 /* ========== [ Resume ] ============= */
