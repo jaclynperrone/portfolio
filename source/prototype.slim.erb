@@ -7,19 +7,17 @@ title: Jaclyn Perrone - Responsive Prototype
       a.back href="responsive.html" DuPont Responsive Design
     .prototype-container
       h2.section-title Responsive Prototype
-      p 
-        | Select different breakpoints to see how this responsive prototype responds. 
-
+      p Select different breakpoints to see how this responsive prototype responds. 
       .button-wrapper
-        button.breakpoint-button.desktop-button.active
+        button.breakpoint-button.active#desktop
           i.fa.fa-desktop
-        button.breakpoint-button.tablet-button
+        button.breakpoint-button#tablet
           i.fa.fa-tablet
-        button.breakpoint-button.mobile-button
+        button.breakpoint-button#mobile
           i.fa.fa-mobile
-      .device-wrapper.desktop
-        .mic-slot
-        iframe#dupont-iframe src="content/dupont/prototype/embedded.html" width="100%" height="600" scrolling="no" frameBorder="0"
-        .home-button
-
-      #trapezoid
+      #device-wrapper.desktop
+        .device
+          .mic-slot
+          iframe#dupont-iframe src="content/dupont/prototype/embedded.html" width="100%" height="600" scrolling="no" frameBorder="0"
+          .home-button
+        .trapezoid

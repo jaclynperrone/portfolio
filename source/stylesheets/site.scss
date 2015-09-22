@@ -25,11 +25,16 @@ $color-fullbleed: $color-theme-light;
 $color-link: #D18483;
 $color-link-hover: darken($color-link, 10%);
 
+$color-silhouette: #666;
+
 $radius: 2px;
 
 $body-copy-size: 1.25em;
 
 $copy-padding: 1.5em;
+
+$speed-fast: 0.1s;
+$speed-medium: 0.7s;
 
 //Breakpoints
 
@@ -56,7 +61,7 @@ h2 {
 }
 
 a {
-  @include transition(color 0.1s);
+  @include transition(color $speed-fast);
   color: $color-link;
   text-decoration: none;
   &:hover {
@@ -133,14 +138,14 @@ footer {
 }
 
 %button {
-  @include transition(background-color 0.1s);
-  background-color: $color-link;
-  color: #fff;
+  @include transition(background-color $speed-fast);
+  background-color: #fff;
+  border: 1px solid $color-link;
+  color: $color-link;
   padding: 0.25em 1em;
   border-radius: $radius;
   &:hover {
-    background-color: $color-link-hover;
-    color: #fff;
+    background-color: lighten($color-link-hover, 38%);
   }
 }
 
@@ -424,7 +429,7 @@ header {
 
 .thumb-col {
   @extend .one-third-col;
-  @include transition(box-shadow 0.1s, background-color 0.15s);
+  @include transition(box-shadow $speed-fast, background-color $speed-fast);
   border-radius: $radius;
   padding: 1em;
   cursor: pointer;
@@ -437,7 +442,7 @@ header {
     }
   }
   &:hover {
-    @include transition(box-shadow 0.1s, background-color 0.1s);
+    @include transition(box-shadow $speed-fast, background-color $speed-fast);
     -moz-box-shadow:    0px 2px 5px 0px #ccc;
     -webkit-box-shadow: 0px 2px 5px 0px #ccc;
     box-shadow:         0px 2px 5px 0px #ccc;
@@ -575,8 +580,6 @@ header {
 
 /* ========== [ Prototype ] ============= */
 
-$color-silhouette: #666;
-
 .prototype-container {
   text-align: center;
   padding-bottom: 10em;
@@ -590,62 +593,80 @@ $color-silhouette: #666;
 }
 
 button.breakpoint-button {
+  @extend %button;
   width: 80px;
   height: 80px;
   font-size: 36px;
-  border-radius: 5px;
-  background-color: #fff;
-  border: none;
+  padding: 0;
   margin: 5px;
-  &:hover {
-    background-color: #ccc;
-  }
   &:focus {
     outline: 0;
   }
   &.active {
-    background-color: $color-accent-dark;
+    background-color: $color-link-hover;
     color: #fff;
   }
 }
 
-.device-wrapper {
+.mic-slot {
+  @include transition(width $speed-medium ease-in-out);
+  opacity: 1;
+  margin: 0 auto 20px auto;
+  width: 10px;
+  height: 10px;
+  border-radius: 5px;
+  background-color: lighten($color-silhouette, 10%);
+}
+
+#dupont-iframe {
+  @include transition(height $speed-medium);
+}
+
+.home-button {
+  @include transition(opacity $speed-medium, delay 0s);
+  opacity: 0.0;
+  background-color: lighten($color-silhouette, 10%);
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  margin: 10px auto 0 auto;
+}
+
+.trapezoid {
+  @include transform(perspective(5px) rotateX(1deg));
+  @include transform-origin(bottom);
+  @include transition(opacity $speed-medium);
+  content: ''; /* To generate the box */
+  width: 300px;
+  height: 200px;
+  margin: -100px auto 0 auto;
+  border-radius: 0 0 10px 10px;
+  background-color: $color-silhouette;
+  opacity: 0;
+}
+
+.device {
+  @include transition(all $speed-medium ease-in-out);
   background-color: $color-silhouette;
   padding: 20px 50px 0px 50px;
   border-radius: 40px;
-  margin: 0px auto;
-  transition: width 0.7s ease-in-out, height 0.7s ease-in-out, padding 0.7s ease-in-out;
-  .mic-slot {
-    opacity: 1;
-    margin: 0 auto 20px auto;
-    width: 10px;
-    height: 10px;
-    border-radius: 5px;
-    background-color: lighten($color-silhouette, 10%);
-    transition: width 0.4s ease-in-out;
-  }
-  #dupont-iframe {
-    transition: height 0.7s;
-  }
-  .home-button {
-    opacity: 0.0;
-    background-color: lighten($color-silhouette, 10%);
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    margin: 10px auto 0 auto;
-    transition: opacity 0.3s;
-    transition-delay: 0.0s;
-  }
+  margin: 0 auto;
+}
 
-  &.desktop {
+#device-wrapper.desktop {
+  .device {
     width: 100%;
     #dupont-iframe {
       height: 600px;
     }
   }
+  .trapezoid {
+    opacity: 1;
+  }
+}
 
-  &.tablet {
+#device-wrapper.tablet {
+  .device {
     width: 780px;
     padding: 20px 30px 20px 30px;
     #dupont-iframe {
@@ -653,11 +674,13 @@ button.breakpoint-button {
     }
     .home-button {
       opacity: 1;
-      transition-delay: 0.7s;
+      transition-delay: $speed-medium;
     }
   }
+}
 
-  &.mobile {
+#device-wrapper.mobile {
+  .device {
     width: 500px;
     padding: 20px 20px 20px 20px;
     .mic-slot {
@@ -668,19 +691,7 @@ button.breakpoint-button {
     }
     .home-button {
       opacity: 1;
-      transition-delay: 0.7s;
+      transition-delay: $speed-medium;
     }
   }
-}
-
-#trapezoid {
-  content: ''; /* To generate the box */
-  width: 300px;
-  height: 200px;
-  margin: -100px auto 0 auto;
-  border-radius: 0 0 10px 10px;
-  background-color: $color-silhouette;
-  transform: perspective(5px) rotateX(1deg);
-  transform-origin: bottom;
-  transition: opacity 0.3s;
 }
